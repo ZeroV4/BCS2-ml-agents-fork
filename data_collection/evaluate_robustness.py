@@ -64,7 +64,7 @@ def main():
     parser.add_argument("--env", required=True, help="path to the standalone environment build")
     parser.add_argument("--results-dir", default="results")
     parser.add_argument("--episodes-per-agent", type=int, default=8, help="3DBall has 12 agents, so 8 gives 96 episodes")
-    parser.add_argument("--seed", type=int, default=42, help="same seed for every agent we test")
+    parser.add_argument("--seed", type=int, default=88280, help="same seed for every agent we test")
     parser.add_argument("--worker-id", type=int, default=1, help="use different ids to evaluate in parallel")
     parser.add_argument("--episodes-file", default="data/robustness_episodes.csv")
     parser.add_argument("--runs-file", default="data/runs.csv")
