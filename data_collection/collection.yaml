@@ -1,0 +1,79 @@
+# Shared settings for collect.py. Change experiments here, not in the code.
+# Per-machine settings (your name, build paths) go in local.yaml, see local.example.yaml.
+
+evaluation:
+  episodes_per_agent: 4      # measured on 3DBall: 185 s with 4, 363 s with 8; noise ±0.008 vs ±0.006
+  seed: 88280                # the same for every agent, so robustness scores can be compared
+  threshold_fraction: 0.9    # robustness is only tested if the baseline reward reaches 90% of the benchmark
+
+ram_sample_interval_s: 1.0
+gpu_probability: 0.5           # on machines with a GPU, about half of the runs train on it, the rest on the CPU
+randomization_probability: 0.5 # share of runs where the environment parameters are randomized during training
+num_envs: [1, 2]               # each extra environment is another Unity process, the main driver of RAM
+
+# Hyperparameters we sample per trainer. Everything else stays as in the environment's base config,
+# so we only vary things that plausibly change time, RAM or robustness (fewer columns, less overfitting).
+# Keys in network_settings: hidden_units, num_layers. All other keys go to hyperparameters.
+trainers:
+  ppo:
+    learning_rate: {log_uniform: [0.0001, 0.001]}
+    batch_size: {choice: [32, 64, 128, 256]}
+    buffer_size: {choice: [2048, 4096, 10240, 20480]}   # all multiples of every batch size above
+    num_epoch: {choice: [3, 5, 8]}
+    hidden_units: {choice: [64, 128, 256]}
+    num_layers: {choice: [1, 2, 3]}
+
+# Per environment:
+#   trainers: base config per trainer type (only trainers listed in both places above are used)
+#   benchmark_mean_reward: from docs/Learning-Environment-Examples.md
+#   needs_graphics: true if the agent uses a camera (cameras render nothing with --no-graphics)
+#   max_steps: sampled uniformly from this range
+#   parameters: environment parameters the agent code reads (GetWithDefault in the C# scripts)
+#     default: value when nothing is changed
+#     randomize: [lowest, highest] value a randomized training run may use
+#     tests: values for the robustness tests (PILOT VALUES, to be trimmed after the pilot runs)
+environments:
+  3DBall:
+    behavior_name: 3DBall
+    benchmark_mean_reward: 100
+    needs_graphics: false
+    trainers: {ppo: config/ppo/3DBall.yaml}
+    max_steps: [150000, 400000]   # our agents reached reward 90 after 108k-240k steps
+    parameters:
+      # no mass tests: mass 0.2-20 never changed the reward in our first runs, so they only cost time.
+      # scale 0.5 and 1.5 never made an agent fail either; the first failures start at 2.0
+      mass: {default: 1.0, randomize: [0.5, 10.0], tests: []}
+      scale: {default: 1.0, randomize: [0.5, 3.0], tests: [2.0, 3.0, 4.0]}
+
+  3DBallHard:
+    behavior_name: 3DBallHard
+    benchmark_mean_reward: 100   # the docs give one benchmark for the 3DBall section; same reward code (+0.1 / -1)
+    needs_graphics: false
+    trainers: {ppo: config/ppo/3DBallHard.yaml}
+    max_steps: [300000, 700000]
+    parameters:
+      mass: {default: 1.0, randomize: [0.5, 10.0], tests: [0.2, 5.0, 20.0]}
+      scale: {default: 1.0, randomize: [0.5, 3.0], tests: [0.5, 1.5, 2.0, 3.0, 4.0]}
+
+  PushBlock:
+    behavior_name: PushBlock
+    benchmark_mean_reward: 4.5
+    needs_graphics: false
+    trainers: {ppo: config/ppo/PushBlock.yaml}
+    max_steps: [1000000, 2000000]
+    parameters:
+      block_scale: {default: 2.0, randomize: [1.0, 3.5], tests: [1.0, 1.5, 3.0, 4.0]}
+      block_drag: {default: 0.5, randomize: [0.1, 2.0], tests: [0.1, 1.5, 3.0]}
+      static_friction: {default: 0.0, randomize: [0.0, 0.6], tests: [0.3, 0.6]}
+      dynamic_friction: {default: 0.0, randomize: [0.0, 0.6], tests: [0.3, 0.6]}
+
+  GridWorld:
+    behavior_name: GridWorld
+    benchmark_mean_reward: 0.8
+    needs_graphics: true         # the agent sees the grid through a CameraSensor (Area.prefab)
+    trainers: {ppo: config/ppo/GridWorld.yaml}
+    max_steps: [250000, 600000]
+    parameters:
+      gridSize: {default: 5, randomize: [3, 8], tests: [3, 7, 9]}
+      numPlusGoals: {default: 1, randomize: [1, 3], tests: [2, 3]}
+      numExGoals: {default: 1, randomize: [1, 3], tests: [2, 3]}

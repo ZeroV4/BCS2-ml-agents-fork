@@ -24,7 +24,7 @@ import torch
 import yaml
 from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
 
-RUN_COLUMNS = [
+RUN_COLUMNS = [ # NEED TO CHECK AND ADD THE ACTUAL FIELDS FOR THE DATA COLLECTION
     "run_id", "environment", "observation_size", "visual_observations", "num_agents", "num_areas",
     "trainer_type", "batch_size", "buffer_size", "learning_rate", "num_epoch", "hidden_units", "num_layers",
     "time_horizon", "max_steps", "use_memory",
@@ -36,10 +36,8 @@ RUN_COLUMNS = [
     "robustness_score", "robustness_score_median",
 ]
 
-# ponytail: per-environment facts typed in by hand; read them from the behavior spec once we use many environments
 ENVIRONMENT_INFO = {"3DBall": dict(observation_size=8, visual_observations=0, num_agents=12)}
-# "Benchmark Mean Reward" from docs/Learning-Environment-Examples.md; the threshold is 90% of it
-BENCHMARK_MEAN_REWARD = {"3DBall": 100.0}
+BENCHMARK_MEAN_REWARD = {"3DBall": 100.0} # NEED TO MAKE THIS ENV AGNOSTIC
 THRESHOLD_FRACTION = 0.9
 
 
