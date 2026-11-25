@@ -1,0 +1,15 @@
+# Copy this file to data_collection/local.yaml (it is not committed) and fill it in once per machine.
+
+member: Teodor   # used in the file names: data/YourName/YourName_run1.csv
+
+# Path to the build of each environment for YOUR operating system, relative to the repo root or absolute.
+# Every environment folder has one build per OS:
+#   Linux:   ../BCS2-builds/3DBall/linux/3DBall.x86_64
+#   Windows: ../BCS2-builds/3DBall/windows/3DBall.exe
+#   macOS:   ../BCS2-builds/3DBall/mac/3DBall.app
+# Environments without a build here are skipped.
+builds:
+  3DBall: ../BCS2-builds/3DBall/windows/3DBall.exe
+  3DBallHard: ../BCS2-builds/3DBallHard/windows/3DBallHard.exe
+  PushBlock: ../BCS2-builds/PushBlock/windows/PushBlock.exe
+  GridWorld: ../BCS2-builds/PushBlock/windows/PushBlock.exe
