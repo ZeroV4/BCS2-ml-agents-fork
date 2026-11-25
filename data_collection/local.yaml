@@ -9,7 +9,7 @@ member: Teodor   # used in the file names: data/YourName/YourName_run1.csv
 #   macOS:   ../BCS2-builds/3DBall/mac/3DBall.app
 # Environments without a build here are skipped.
 builds:
-  3DBall: ../BCS2-builds/3DBall/windows/3DBall.exe
+  3DBall: 3d_ball_build/UnityEnvironment.exe
   3DBallHard: ../BCS2-builds/3DBallHard/windows/3DBallHard.exe
   PushBlock: ../BCS2-builds/PushBlock/windows/PushBlock.exe
   GridWorld: ../BCS2-builds/PushBlock/windows/PushBlock.exe
