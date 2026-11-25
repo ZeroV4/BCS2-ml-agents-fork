@@ -95,3 +95,7 @@ coverage.xml
 /htmlcov/
 
 **/UserSettings/*
+
+org_stuff/
+
+data_collection/local.yaml
