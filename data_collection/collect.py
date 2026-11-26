@@ -436,7 +436,8 @@ def commit_and_push(paths, run_number, environment_name):
     relative_paths = [str(path.relative_to(REPO_ROOT)) for path in paths]
     git("add", "--", *relative_paths)
     # giving paths to git commit commits only those paths, even if other files are staged (git help commit, --only)
-    committed = git("commit", "-m", f"run #{run_number}, {environment_name}", "--", *relative_paths)
+    # no "#" before the number: GitHub turns "#106" into a link to issue/pull request 106
+    committed = git("commit", "-m", f"run {run_number}, {environment_name}", "--", *relative_paths)
     if committed.returncode != 0:
         print(f"warning: commit failed, the data is saved but not committed:\n{committed.stderr}{committed.stdout}")
         return
