@@ -1,0 +1,47 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1794438435",
+        "python_version": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\Fanni\\Documents\\GitHub\\BCS2-ml-agents-fork\\ml-agents\\mlagents\\trainers\\learn.py data_collection\\configs\\3DBall_test.yaml --run-id 3DBall_test_20261112-000707 --results-dir C:\\Users\\Fanni\\Documents\\GitHub\\BCS2-ml-agents-fork\\data_collection\\results",
+        "mlagents_version": "1.0.0",
+        "mlagents_envs_version": "1.0.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "2.14.1+cpu",
+        "numpy_version": "1.23.5",
+        "end_time_seconds": "1794438446"
+    },
+    "total": 10.746000499995716,
+    "count": 1,
+    "self": 0.009714699997857679,
+    "children": {
+        "run_training.setup": {
+            "total": 0.24986749999516178,
+            "count": 1,
+            "self": 0.24986749999516178
+        },
+        "TrainerController.start_learning": {
+            "total": 10.486418300002697,
+            "count": 1,
+            "self": 0.0005141000001458451,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 10.485890300005849,
+                    "count": 1,
+                    "self": 10.485890300005849
+                },
+                "trainer_threads": {
+                    "total": 5.999972927384079e-07,
+                    "count": 1,
+                    "self": 5.999972927384079e-07
+                },
+                "TrainerController._save_models": {
+                    "total": 1.3299999409355223e-05,
+                    "count": 1,
+                    "self": 1.3299999409355223e-05
+                }
+            }
+        }
+    }
+}

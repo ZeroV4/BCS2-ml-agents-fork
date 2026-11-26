@@ -1,0 +1,29 @@
+{
+    "3DBall": {
+        "checkpoints": [
+            {
+                "steps": 300710,
+                "file_path": "C:\\Users\\Fanni\\Documents\\GitHub\\BCS2-ml-agents-fork\\results\\Fanni_PM3_baseline_run1_20261125_180020\\3DBall\\3DBall-300710.onnx",
+                "reward": 100.00001525878906,
+                "creation_time": 1795626300.1352448,
+                "auxillary_file_paths": [
+                    "C:\\Users\\Fanni\\Documents\\GitHub\\BCS2-ml-agents-fork\\results\\Fanni_PM3_baseline_run1_20261125_180020\\3DBall\\3DBall-300710.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 300710,
+            "file_path": "C:\\Users\\Fanni\\Documents\\GitHub\\BCS2-ml-agents-fork\\results\\Fanni_PM3_baseline_run1_20261125_180020\\3DBall.onnx",
+            "reward": 100.00001525878906,
+            "creation_time": 1795626300.1352448,
+            "auxillary_file_paths": [
+                "C:\\Users\\Fanni\\Documents\\GitHub\\BCS2-ml-agents-fork\\results\\Fanni_PM3_baseline_run1_20261125_180020\\3DBall\\3DBall-300710.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "2.6.0+cpu"
+    }
+}

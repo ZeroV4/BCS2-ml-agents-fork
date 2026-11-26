@@ -1,0 +1,29 @@
+{
+    "3DBall": {
+        "checkpoints": [
+            {
+                "steps": 100082,
+                "file_path": "C:\\Users\\Fanni\\Documents\\GitHub\\BCS2-ml-agents-fork\\data_collection\\results\\3dball_run2_baseline_01\\3DBall\\3DBall-100082.onnx",
+                "reward": 19.47059104021858,
+                "creation_time": 1794445222.3999953,
+                "auxillary_file_paths": [
+                    "C:\\Users\\Fanni\\Documents\\GitHub\\BCS2-ml-agents-fork\\data_collection\\results\\3dball_run2_baseline_01\\3DBall\\3DBall-100082.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 100082,
+            "file_path": "C:\\Users\\Fanni\\Documents\\GitHub\\BCS2-ml-agents-fork\\data_collection\\results\\3dball_run2_baseline_01\\3DBall.onnx",
+            "reward": 19.47059104021858,
+            "creation_time": 1794445222.3999953,
+            "auxillary_file_paths": [
+                "C:\\Users\\Fanni\\Documents\\GitHub\\BCS2-ml-agents-fork\\data_collection\\results\\3dball_run2_baseline_01\\3DBall\\3DBall-100082.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "2.14.1+cpu"
+    }
+}

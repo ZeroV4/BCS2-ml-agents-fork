@@ -1,0 +1,86 @@
+C:\Users\Fanni\.venvs\ml-agents-collection-310\lib\site-packages\torch\__init__.py:1236: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\tensor\python_tensor.cpp:436.)
+  _C._set_default_tensor_type(t)
+C:\Users\Fanni\.venvs\ml-agents-collection-310\lib\site-packages\torch\__init__.py:1236: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\tensor\python_tensor.cpp:436.)
+  _C._set_default_tensor_type(t)
+[INFO] Connected to Unity environment with package version 3.0.0-exp.1 and communication version 1.5.0
+[INFO] Connected new brain: 3DBall?team=0
+
+
+	Unity Technologies
+
+ Version information:
+  ml-agents: 1.0.0,
+  ml-agents-envs: 1.0.0,
+  Communicator API: 1.5.0,
+  PyTorch: 2.6.0+cpu
+[INFO] Hyperparameters for behavior name 3DBall: 
+	trainer_type:	ppo
+	hyperparameters:	
+	  batch_size:	64
+	  buffer_size:	12000
+	  learning_rate:	0.0003
+	  beta:	0.001
+	  epsilon:	0.2
+	  lambd:	0.99
+	  num_epoch:	3
+	  shared_critic:	False
+	  learning_rate_schedule:	linear
+	  beta_schedule:	linear
+	  epsilon_schedule:	linear
+	checkpoint_interval:	500000
+	network_settings:	
+	  normalize:	True
+	  hidden_units:	128
+	  num_layers:	2
+	  vis_encode_type:	simple
+	  memory:	None
+	  goal_conditioning_type:	hyper
+	  deterministic:	False
+	reward_signals:	
+	  extrinsic:	
+	    gamma:	0.99
+	    strength:	1.0
+	    network_settings:	
+	      normalize:	False
+	      hidden_units:	128
+	      num_layers:	2
+	      vis_encode_type:	simple
+	      memory:	None
+	      goal_conditioning_type:	hyper
+	      deterministic:	False
+	init_path:	None
+	keep_checkpoints:	5
+	even_checkpoints:	False
+	max_steps:	300000
+	time_horizon:	1000
+	summary_freq:	12000
+	threaded:	False
+	self_play:	None
+	behavioral_cloning:	None
+[INFO] 3DBall. Step: 12000. Time Elapsed: 15.712 s. Mean Reward: 1.203. Std of Reward: 0.715. Training.
+[INFO] 3DBall. Step: 24000. Time Elapsed: 26.232 s. Mean Reward: 1.380. Std of Reward: 0.799. Training.
+[INFO] 3DBall. Step: 36000. Time Elapsed: 36.356 s. Mean Reward: 1.884. Std of Reward: 1.084. Training.
+[INFO] 3DBall. Step: 48000. Time Elapsed: 46.709 s. Mean Reward: 3.205. Std of Reward: 2.190. Training.
+[INFO] 3DBall. Step: 60000. Time Elapsed: 57.203 s. Mean Reward: 6.385. Std of Reward: 5.573. Training.
+[INFO] 3DBall. Step: 72000. Time Elapsed: 68.441 s. Mean Reward: 13.844. Std of Reward: 10.893. Training.
+[INFO] 3DBall. Step: 84000. Time Elapsed: 80.256 s. Mean Reward: 42.241. Std of Reward: 35.968. Training.
+[INFO] 3DBall. Step: 96000. Time Elapsed: 89.588 s. Mean Reward: 88.815. Std of Reward: 23.093. Training.
+[INFO] 3DBall. Step: 108000. Time Elapsed: 98.953 s. Mean Reward: 92.792. Std of Reward: 24.652. Training.
+[INFO] 3DBall. Step: 120000. Time Elapsed: 108.410 s. Mean Reward: 96.354. Std of Reward: 10.892. Training.
+[INFO] 3DBall. Step: 132000. Time Elapsed: 117.544 s. Mean Reward: 94.617. Std of Reward: 17.854. Training.
+[INFO] 3DBall. Step: 144000. Time Elapsed: 130.410 s. Mean Reward: 95.269. Std of Reward: 15.847. Training.
+[INFO] 3DBall. Step: 156000. Time Elapsed: 142.151 s. Mean Reward: 98.758. Std of Reward: 4.118. Training.
+[INFO] 3DBall. Step: 168000. Time Elapsed: 153.579 s. Mean Reward: 90.831. Std of Reward: 21.620. Training.
+[INFO] 3DBall. Step: 180000. Time Elapsed: 163.902 s. Mean Reward: 92.885. Std of Reward: 24.648. Training.
+[INFO] 3DBall. Step: 192000. Time Elapsed: 174.977 s. Mean Reward: 100.000. Std of Reward: 0.000. Training.
+[INFO] 3DBall. Step: 204000. Time Elapsed: 186.361 s. Mean Reward: 100.000. Std of Reward: 0.000. Training.
+[INFO] 3DBall. Step: 216000. Time Elapsed: 197.753 s. Mean Reward: 100.000. Std of Reward: 0.000. Training.
+[INFO] 3DBall. Step: 228000. Time Elapsed: 208.666 s. Mean Reward: 100.000. Std of Reward: 0.000. Training.
+[INFO] 3DBall. Step: 240000. Time Elapsed: 221.941 s. Mean Reward: 97.392. Std of Reward: 9.033. Training.
+[INFO] 3DBall. Step: 252000. Time Elapsed: 232.499 s. Mean Reward: 100.000. Std of Reward: 0.000. Training.
+[INFO] 3DBall. Step: 264000. Time Elapsed: 245.130 s. Mean Reward: 100.000. Std of Reward: 0.000. Training.
+[INFO] 3DBall. Step: 276000. Time Elapsed: 256.195 s. Mean Reward: 97.583. Std of Reward: 8.015. Training.
+[INFO] 3DBall. Step: 288000. Time Elapsed: 267.130 s. Mean Reward: 100.000. Std of Reward: 0.000. Training.
+[INFO] 3DBall. Step: 300000. Time Elapsed: 277.672 s. Mean Reward: 100.000. Std of Reward: 0.000. Training.
+[INFO] Exported C:\Users\Fanni\Documents\GitHub\BCS2-ml-agents-fork\results\Fanni_PM3_baseline_run1_20261125_180020\3DBall\3DBall-300710.onnx
+[INFO] Copied C:\Users\Fanni\Documents\GitHub\BCS2-ml-agents-fork\results\Fanni_PM3_baseline_run1_20261125_180020\3DBall\3DBall-300710.onnx to C:\Users\Fanni\Documents\GitHub\BCS2-ml-agents-fork\results\Fanni_PM3_baseline_run1_20261125_180020\3DBall.onnx.

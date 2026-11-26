@@ -7,21 +7,21 @@ evaluation:
   threshold_fraction: 0.9    # robustness is only tested if the baseline reward reaches 90% of the benchmark
 
 ram_sample_interval_s: 1.0
-gpu_probability: 0.5           # on machines with a GPU, about half of the runs train on it, the rest on the CPU
-randomization_probability: 0.5 # share of runs where the environment parameters are randomized during training
-num_envs: [1, 2]               # each extra environment is another Unity process, the main driver of RAM
+gpu_probability: 0           # on machines with a GPU, about half of the runs train on it, the rest on the CPU
+randomization_probability: 1 # share of runs where the environment parameters are randomized during training
+num_envs: [1]               # each extra environment is another Unity process, the main driver of RAM
 
 # Hyperparameters we sample per trainer. Everything else stays as in the environment's base config,
 # so we only vary things that plausibly change time, RAM or robustness (fewer columns, less overfitting).
 # Keys in network_settings: hidden_units, num_layers. All other keys go to hyperparameters.
 trainers:
   ppo:
-    learning_rate: {log_uniform: [0.0001, 0.001]}
-    batch_size: {choice: [32, 64, 128, 256]}
-    buffer_size: {choice: [2048, 4096, 10240, 20480]}   # all multiples of every batch size above
-    num_epoch: {choice: [3, 5, 8]}
-    hidden_units: {choice: [64, 128, 256]}
-    num_layers: {choice: [1, 2, 3]}
+    learning_rate: {choice: [0.0003]}
+    batch_size: {choice: [64]}
+    buffer_size: {choice: [12000]}
+    num_epoch: {choice: [3]}
+    hidden_units: {choice: [128]}
+    num_layers: {choice: [2]}
 
 # Per environment:
 #   trainers: base config per trainer type (only trainers listed in both places above are used)
@@ -38,7 +38,7 @@ environments:
     benchmark_mean_reward: 100
     needs_graphics: false
     trainers: {ppo: config/ppo/3DBall.yaml}
-    max_steps: [150000, 400000]   # our agents reached reward 90 after 108k-240k steps
+    max_steps: [300000,300000]   # our agents reached reward 90 after 108k-240k steps
     parameters:
       # no mass tests: mass 0.2-20 never changed the reward in our first runs, so they only cost time.
       # scale 0.5 and 1.5 never made an agent fail either; the first failures start at 2.0
@@ -60,7 +60,7 @@ environments:
     benchmark_mean_reward: 4.5
     needs_graphics: false
     trainers: {ppo: config/ppo/PushBlock.yaml}
-    max_steps: [1000000, 2000000]
+    max_steps: [1000000,1000000]
     parameters:
       block_scale: {default: 2.0, randomize: [1.0, 3.5], tests: [1.0, 1.5, 3.0, 4.0]}
       block_drag: {default: 0.5, randomize: [0.1, 2.0], tests: [0.1, 1.5, 3.0]}
@@ -72,7 +72,7 @@ environments:
     benchmark_mean_reward: 0.8
     needs_graphics: true         # the agent sees the grid through a CameraSensor (Area.prefab)
     trainers: {ppo: config/ppo/GridWorld.yaml}
-    max_steps: [250000, 600000]
+    max_steps: [300000,300000]
     parameters:
       gridSize: {default: 5, randomize: [3, 8], tests: [3, 7, 9]}
       numPlusGoals: {default: 1, randomize: [1, 3], tests: [2, 3]}
